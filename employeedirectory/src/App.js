@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import EmployeeCard from "./components/EmployeeCard";
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
@@ -25,20 +26,24 @@ class App extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <Title> Employee List</Title>
-        {this.state.employees.map(employee => (
-          <EmployeeCard
-            removeEmployee={this.removeEmployee}
-            id={employee.id}
-            key={employee.id}
-            name={employee.employeeName}
-            image={employee.image}
-            salary={employee.employeeSalary}
-            age={employee.employeeAge}
-          />
-        ))}
-      </Wrapper>
+      <Router>
+        <Route exact path="/">
+        <Wrapper>
+          <Title> Employee List</Title>
+          {this.state.employees.map(employee => (
+            <EmployeeCard
+              removeEmployee={this.removeEmployee}
+              id={employee.id}
+              key={employee.id}
+              name={employee.employeeName}
+              image={employee.image}
+              salary={employee.employeeSalary}
+              age={employee.employeeAge}
+            />
+          ))}
+        </Wrapper>
+        </Route>
+      </Router>
     );
   }
 }
