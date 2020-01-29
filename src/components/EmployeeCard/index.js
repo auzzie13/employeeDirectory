@@ -18,6 +18,10 @@ function EmployeeCard(props) {
             {props.age}
           </li>
           <li>
+            <strong>Department:</strong>
+            {props.department}
+          </li>
+          <li>
             <strong>Salary:</strong>
             {props.salary}
           </li>
