@@ -9,3 +9,8 @@ An employee directory with React. Broke up application's UI into components, man
 ## Business Context
 
 An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by department.
+
+## Languages
+
+-React
+-Javascript
