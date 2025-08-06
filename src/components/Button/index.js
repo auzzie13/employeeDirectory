@@ -4,6 +4,7 @@ import "./style.css";
 function Button(props) {
   const [isOpen, setIsOpen] = useState(false);
   const departments = [
+    "All",
     "IT",
     "HR",
     "CEO",

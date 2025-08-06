@@ -26,11 +26,15 @@ class App extends Component {
 
   updateEmployees = (e, department) => {
     e.preventDefault();
+      if (department === "All") {
+    // Show all employees if "All" selected
+    this.setState({ filteredEmployees: [...this.state.employees] });
+    } else {
     const filteredEmployees = this.state.employees.filter(
       o => o.department === department
     );
     this.setState({ filteredEmployees });
-  };
+  }};
 
   render() {
     return (
