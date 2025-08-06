@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import EmployeeCard from "./components/EmployeeCard";
 import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
@@ -38,26 +38,32 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
-        <Route exact path="/">
-          <Wrapper>
-            <Title> Employee List</Title>
-            <Button updateEmployees={this.updateEmployees} />
-            {this.state.filteredEmployees.map(employee => (
-              <EmployeeCard
-                removeEmployee={this.removeEmployee}
-                id={employee.id}
-                key={employee.id}
-                name={employee.employeeName}
-                image={employee.image}
-                department={employee.department}
-                salary={employee.employeeSalary}
-                age={employee.employeeAge}
-              />
-            ))}
-          </Wrapper>
-        </Route>
-      </Router>
+
+<Router>
+  <Routes>
+    <Route
+      path="/"
+      element={
+        <Wrapper>
+          <Title> Employee List</Title>
+          <Button updateEmployees={this.updateEmployees} />
+          {this.state.filteredEmployees.map(employee => (
+            <EmployeeCard
+              removeEmployee={this.removeEmployee}
+              id={employee.id}
+              key={employee.id}
+              name={employee.employeeName}
+              image={employee.image}
+              department={employee.department}
+              salary={employee.employeeSalary}
+              age={employee.employeeAge}
+            />
+          ))}
+        </Wrapper>
+      }
+    />
+  </Routes>
+</Router>
     );
   }
 }
